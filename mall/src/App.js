@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Table from './Table'
-import From from './Form'
+import Table from './view/Table'
+import From from './view/Form'
 class App extends Component {
     state = {
         characters: [
