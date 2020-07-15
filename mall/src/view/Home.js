@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter ,Link} from 'react-router-dom'
 class Home extends React.Component {
 
     encodeQuery(query) {
@@ -25,6 +25,7 @@ class Home extends React.Component {
         return (
             <div>
                 <a href='/detail'>去detail</a>
+                <Link to={'/app'}>去App</Link>
                 <div onClick={this.gotoRouter.bind(this)}>  <button >   通过函数跳转</button></div>
             </div>
         )

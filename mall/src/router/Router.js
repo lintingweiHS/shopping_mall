@@ -6,21 +6,24 @@ import {
 } from 'react-router-dom'
 import Home from '../view/Home'
 import Detail from '../view/Detail'
+import App from "../view/App"
 // import App from '../App'
 
 
 
 
 
-export default function App() {
+export default function Index() {
 
     return (
         <Router>
             <div>
                 <ul>
+                <li>
+                        <Link to="/App">App</Link>
+                    </li>
                     <li>
                         <Link to="/">Home</Link>
-
                     </li>
                     <li>
                         <Link to="/about">About</Link>
@@ -34,6 +37,7 @@ export default function App() {
                 </ul>
 
                 <Switch>
+                   
                     <Route path="/about" component={About}>
                         {/* <About /> */}
                     </Route>
@@ -43,10 +47,13 @@ export default function App() {
                     <Route path="/detail">
                         <Detail />
                     </Route>
+                    <Route path="/app">
+                        < App />
+                    </Route>
                     <Route path="/">
                         <Home />
                     </Route>
-               
+
                 </Switch>
             </div>
         </Router>
@@ -65,7 +72,7 @@ function About() {
 
 function Topics() {
     let match = useRouteMatch();
-   
+
     return (
         <div>
             <h2>Topics</h2>

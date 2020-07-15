@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import Table from './view/Table'
-import From from './view/Form'
+import { withRouter, Link } from 'react-router-dom'
+import Table from './Table'
+import From from './Form'
+import Home from './Home'
 class App extends Component {
     state = {
         characters: [
@@ -21,20 +23,21 @@ class App extends Component {
                 job: 'Bartender',
             },
         ],
-       
+
     }
     render() {
         return (
             <div className="App">
                 <h1>Hello, React!</h1>
+                <Home/>
                 <Table characterData={this.state.characters} removeCharacter={this.removeCharacter} />
                 <From handleSubmit={this.handleSubmit} />
             </div>
         )
     }
     handleSubmit = (character) => {
-        this.setState({characters: [...this.state.characters, character]})
-      }
+        this.setState({ characters: [...this.state.characters, character] })
+    }
     removeCharacter = (index) => {
         const { characters } = this.state
         console.log(characters)
@@ -46,4 +49,4 @@ class App extends Component {
     }
 }
 
-export default App
+export default withRouter(App)
