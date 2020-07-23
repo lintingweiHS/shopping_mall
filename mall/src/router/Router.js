@@ -7,6 +7,7 @@ import {
 import Home from '../view/Home'
 import Detail from '../view/Detail'
 import App from "../view/App"
+import Time from '../view/Time'
 // import App from '../App'
 
 
@@ -34,6 +35,9 @@ export default function Index() {
                     <li>
                         <Link to="/detail">detail</Link>
                     </li>
+                    <li>
+                        <Link to="/time">time</Link>
+                    </li>
                 </ul>
 
                 <Switch>
@@ -50,9 +54,13 @@ export default function Index() {
                     <Route path="/app">
                         < App />
                     </Route>
+                    <Route path="/time">
+                        <Time/>
+                    </Route>
                     <Route path="/">
                         <Home />
                     </Route>
+                 
 
                 </Switch>
             </div>
