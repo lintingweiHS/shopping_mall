@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter, Link ,NavLink} from 'react-router-dom'
 import Table from './Table'
 import From from './Form'
 import Home from './Home'
@@ -29,7 +29,26 @@ class App extends Component {
         return (
             <div className="App">
                 <h1>Hello, React!</h1>
-                <Home/>
+                <ul>
+                    <li>
+                        <Link to="/App">App</Link>
+                    </li>
+                    <li>
+                        <Link to="/app/name">Home</Link>
+                    </li>
+                    <li>
+                        <NavLink to={"/scroll"}>Scroll</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/about"}>About</NavLink>
+                    </li>
+                    <li>
+                        <Link to="/topics">Topics</Link>
+                    </li>
+                    <li>
+                        <Link to="/detail">detail</Link>
+                    </li>
+                </ul>
                 <Table characterData={this.state.characters} removeCharacter={this.removeCharacter} />
                 <From handleSubmit={this.handleSubmit} />
             </div>

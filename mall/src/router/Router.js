@@ -10,6 +10,8 @@ import App from "../view/App"
 import Time from '../view/Time'
 // import App from '../App'
 
+import Browser from "../view/Browser"
+import Scroll from "../view/scroll"
 
 
 
@@ -19,29 +21,8 @@ export default function Index() {
     return (
         <Router>
             <div>
-                <ul>
-                <li>
-                        <Link to="/App">App</Link>
-                    </li>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/about">About</Link>
-                    </li>
-                    <li>
-                        <Link to="/topics">Topics</Link>
-                    </li>
-                    <li>
-                        <Link to="/detail">detail</Link>
-                    </li>
-                    <li>
-                        <Link to="/time">time</Link>
-                    </li>
-                </ul>
-
                 <Switch>
-                   
+
                     <Route path="/about" component={About}>
                         {/* <About /> */}
                     </Route>
@@ -51,12 +32,19 @@ export default function Index() {
                     <Route path="/detail">
                         <Detail />
                     </Route>
+                    <Route path="/app/name">
+                        <Home />
+                    </Route>
+                    <Route path="/scroll">
+                        <Scroll/>
+                    </Route>
+                    <Route path="/Browser">
+                        <Browser/>
+                    </Route>
                     <Route path="/app">
                         < App />
                     </Route>
-                    <Route path="/time">
-                        <Time/>
-                    </Route>
+                    
                     <Route path="/">
                         <Home />
                     </Route>
