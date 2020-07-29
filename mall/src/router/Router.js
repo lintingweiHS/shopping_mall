@@ -10,10 +10,10 @@ import App from "../view/App"
 import Time from '../view/Time'
 import Greeting from '../view/Greeting'
 import List from '../view/List'
-// import App from '../App'
-
-import Browser from "../view/Browser"
+import Form from '../view/oForm'
 import Scroll from "../view/scroll"
+// import App from '../App'
+import Browser from "../view/Browser"
 
 
 
@@ -48,6 +48,12 @@ export default function Index() {
                     <li>
                         <Link to="/List">List</Link>
                     </li>
+                    <li>
+                        <Link to="/Form">Form</Link>
+                    </li>
+                    <li>
+                        <Link to="/Scorll">Scorll</Link>
+                    </li>
                 </ul>
 
                 <Switch>
@@ -64,16 +70,15 @@ export default function Index() {
                     <Route path="/app/name">
                         <Home />
                     </Route>
-                    <Route path="/scroll">
-                        <Scroll/>
+                    <Route path="/Scorll">
+                        <Scroll />
                     </Route>
                     <Route path="/Browser">
-                        <Browser/>
+                        <Browser />
                     </Route>
                     <Route path="/app">
                         < App />
                     </Route>
-                    
                     <Route path="/time">
                         <Time name='one' />
                         <Time name='two' /><Time name='three' />
@@ -83,6 +88,9 @@ export default function Index() {
                     </Route>
                     <Route path="/List">
                         <List />
+                    </Route>
+                    <Route path="/Form">
+                        <Form />
                     </Route>
                     <Route path="/">
                         <Home />

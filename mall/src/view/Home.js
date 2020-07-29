@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter ,Link} from 'react-router-dom'
-import Scroll from "./scroll"
 class Home extends React.Component {
 
     encodeQuery(query) {
@@ -25,7 +24,6 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <Scroll/>
                 <a href='/detail?name=yushasha'>去detail</a>
                 <Link to={'/app'}>去App</Link>
                 <div onClick={this.gotoRouter.bind(this)}>  <button >   通过函数跳转</button></div>
