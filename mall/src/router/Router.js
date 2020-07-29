@@ -8,6 +8,8 @@ import Home from '../view/Home'
 import Detail from '../view/Detail'
 import App from "../view/App"
 import Time from '../view/Time'
+import Greeting from '../view/Greeting'
+import List from '../view/List'
 // import App from '../App'
 
 import Browser from "../view/Browser"
@@ -21,6 +23,33 @@ export default function Index() {
     return (
         <Router>
             <div>
+                <ul>
+                    <li>
+                        <Link to="/App">App</Link>
+                    </li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/about">About</Link>
+                    </li>
+                    <li>
+                        <Link to="/topics">Topics</Link>
+                    </li>
+                    <li>
+                        <Link to="/detail">detail-Click</Link>
+                    </li>
+                    <li>
+                        <Link to="/time">time</Link>
+                    </li>
+                    <li>
+                        <Link to="/Greeting">Greeting</Link>
+                    </li>
+                    <li>
+                        <Link to="/List">List</Link>
+                    </li>
+                </ul>
+
                 <Switch>
 
                     <Route path="/about" component={About}>
@@ -45,10 +74,20 @@ export default function Index() {
                         < App />
                     </Route>
                     
+                    <Route path="/time">
+                        <Time name='one' />
+                        <Time name='two' /><Time name='three' />
+                    </Route>
+                    <Route path="/Greeting">
+                        <Greeting />
+                    </Route>
+                    <Route path="/List">
+                        <List />
+                    </Route>
                     <Route path="/">
                         <Home />
                     </Route>
-                 
+
 
                 </Switch>
             </div>
