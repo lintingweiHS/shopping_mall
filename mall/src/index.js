@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import App from './App'
 import Router from './router/Router'
 import './index.css'
 ReactDOM.render((
-    <Router/>
+        <Router />
+
 ), document.getElementById('root'))
 
 

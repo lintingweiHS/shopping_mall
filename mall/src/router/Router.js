@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import {
     BrowserRouter as Router, Route, HashRouter, Switch, Link, useRouteMatch,
     useParams
@@ -8,13 +7,9 @@ import Home from '../view/Home'
 import Detail from '../view/Detail'
 import App from "../view/App"
 import Time from '../view/Time'
-import Greeting from '../view/Greeting'
-import List from '../view/List'
-import Form from '../view/oForm'
-import Scroll from "../view/scroll"
-// import App from '../App'
 import Browser from "../view/Browser"
-
+import Scroll from "../view/scroll"
+import Form from '../view/oForm'
 
 
 
@@ -23,41 +18,8 @@ export default function Index() {
     return (
         <Router>
             <div>
-                <ul>
-                    <li>
-                        <Link to="/App">App</Link>
-                    </li>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/about">About</Link>
-                    </li>
-                    <li>
-                        <Link to="/topics">Topics</Link>
-                    </li>
-                    <li>
-                        <Link to="/detail">detail-Click</Link>
-                    </li>
-                    <li>
-                        <Link to="/time">time</Link>
-                    </li>
-                    <li>
-                        <Link to="/Greeting">Greeting</Link>
-                    </li>
-                    <li>
-                        <Link to="/List">List</Link>
-                    </li>
-                    <li>
-                        <Link to="/Form">Form</Link>
-                    </li>
-                    <li>
-                        <Link to="/Scorll">Scorll</Link>
-                    </li>
-                </ul>
-
+                <App />
                 <Switch>
-
                     <Route path="/about" component={About}>
                         {/* <About /> */}
                     </Route>
@@ -70,27 +32,17 @@ export default function Index() {
                     <Route path="/app/name">
                         <Home />
                     </Route>
-                    <Route path="/Scorll">
+                    <Route path="/scroll">
                         <Scroll />
                     </Route>
                     <Route path="/Browser">
                         <Browser />
                     </Route>
-                    <Route path="/app">
-                        < App />
-                    </Route>
                     <Route path="/time">
-                        <Time name='one' />
-                        <Time name='two' /><Time name='three' />
+                        < Time />
                     </Route>
-                    <Route path="/Greeting">
-                        <Greeting />
-                    </Route>
-                    <Route path="/List">
-                        <List />
-                    </Route>
-                    <Route path="/Form">
-                        <Form />
+                    <Route path="/form">
+                        < Form />
                     </Route>
                     <Route path="/">
                         <Home />
