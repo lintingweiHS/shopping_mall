@@ -32,9 +32,11 @@ class App extends Component {
                     <li>
                         <Link to="/time">time</Link>
                     </li>
-                    
                     <li>
                         <Link to="/form">form</Link>
+                    </li>
+                    <li>
+                        <Link to="/BoilingVerdict">BoilingVerdict</Link>
                     </li>
                 </ul>
             

@@ -10,7 +10,7 @@ import Time from '../view/Time'
 import Browser from "../view/Browser"
 import Scroll from "../view/scroll"
 import Form from '../view/oForm'
-
+import BoilingVerdict from '../view/BoilingVerdict'
 
 
 export default function Index() {
@@ -43,6 +43,9 @@ export default function Index() {
                     </Route>
                     <Route path="/form">
                         < Form />
+                    </Route>
+                    <Route path="/BoilingVerdict">
+                        < BoilingVerdict />
                     </Route>
                     <Route path="/">
                         <Home />
