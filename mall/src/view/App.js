@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { withRouter, Link ,NavLink} from 'react-router-dom'
+import { withRouter, Link, NavLink } from 'react-router-dom'
 
 class App extends Component {
     state = {
-     
+
 
     }
     render() {
@@ -38,8 +38,11 @@ class App extends Component {
                     <li>
                         <Link to="/BoilingVerdict">BoilingVerdict</Link>
                     </li>
+                    <li>
+                        <Link to="/FancyBorder">FancyBorder</Link>
+                    </li>
                 </ul>
-            
+
             </div>
         )
     }

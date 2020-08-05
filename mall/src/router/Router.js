@@ -11,7 +11,7 @@ import Browser from "../view/Browser"
 import Scroll from "../view/scroll"
 import Form from '../view/oForm'
 import BoilingVerdict from '../view/BoilingVerdict'
-
+import FancyBorder from '../view/slot/FancyBorder'
 
 export default function Index() {
 
@@ -46,6 +46,9 @@ export default function Index() {
                     </Route>
                     <Route path="/BoilingVerdict">
                         < BoilingVerdict />
+                    </Route>
+                    <Route path="/FancyBorder">
+                        <FancyBorder/>
                     </Route>
                     <Route path="/">
                         <Home />
