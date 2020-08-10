@@ -41,6 +41,9 @@ class App extends Component {
                     <li>
                         <Link to="/FancyBorder">FancyBorder</Link>
                     </li>
+                    <li>
+                        <Link to="/Search">Search</Link>
+                    </li>
                 </ul>
 
             </div>

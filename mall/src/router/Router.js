@@ -12,6 +12,7 @@ import Scroll from "../view/scroll"
 import Form from '../view/oForm'
 import BoilingVerdict from '../view/BoilingVerdict'
 import FancyBorder from '../view/slot/FancyBorder'
+import Search from "../view/search/Search"
 
 export default function Index() {
 
@@ -49,6 +50,9 @@ export default function Index() {
                     </Route>
                     <Route path="/FancyBorder">
                         <FancyBorder/>
+                    </Route>
+                    <Route path="/Search">
+                        <Search/>
                     </Route>
                     <Route path="/">
                         <Home />
