@@ -29,9 +29,12 @@ function todos(state = [], action) {
                                         // console.log(Object.assign({ a: 1, b: 2 }, todo, {
                                         //         completed: true
                                         // }), 111)
-                                        return Object.assign({  }, todo, {
+
+                                        let aa = Object.assign({}, todo, {
                                                 completed: true
                                         })
+                                        console.log(aa,state)
+                                        return aa
                                 }
                                 // console.log(todo,'bbb')
                                 return todo
@@ -55,7 +58,7 @@ store.dispatch({
 store.dispatch({
         type: 'COMPLETE_TODO', index: 0
 })
-let arr =  store.dispatch({
+let arr = store.dispatch({
         type: 'COMPLETE_TODO', index: 1
 })
 console.log(arr, 123)
