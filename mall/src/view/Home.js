@@ -1,8 +1,20 @@
 import React from 'react';
-import { withRouter ,Link} from 'react-router-dom'
-import Scroll from "./scroll"
+import { withRouter, Link } from 'react-router-dom'
+import store from '../redux/redux'
+import {addglobal} from '../redux/action'
 class Home extends React.Component {
 
+
+    componentDidMount() {
+        
+        store.dispatch({
+            type: 'global',
+            key: 'ltw',
+            value: 22
+        })
+        store.dispatch(addglobal('color','red'))
+        console.log(store.getState())
+    }
     encodeQuery(query) {
         let queryStr = ''
         let keys = Object.keys(query)
