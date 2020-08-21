@@ -18,10 +18,16 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import App from './App';
+import store from './redux/redux'
+import axios from '../lib/axios'
+
+store.dispatch({
+  type:'store',
+  key:'axios',
+  value:axios
+})
 import Router from './router/router'
-// import axios from 'axios'
-// axios.defaults.baseURL = 'http://44454.cn';
+
 
 ReactDOM.render((
   <Router />

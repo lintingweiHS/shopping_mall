@@ -13,6 +13,6 @@ function todos(state = {}, action) {
     }
 }
 
-let reducer = combineReducers(todos)
-let store = createStore(reducer)
-return store
+const  reducer = combineReducers({todos})
+const  store = createStore(reducer)
+export default store

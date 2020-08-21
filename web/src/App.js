@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import './App.css';
+import store from './redux/redux'
+import axios from '../lib/axios'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,7 @@ class App extends Component {
     this.getData();
   }
   getData = () => {
-    axios.post('api/passport/login', {
+    axios.Post('api/passport/login', {
       username: 123,
       password: 132
     }).then(res => {

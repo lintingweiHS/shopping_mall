@@ -4,7 +4,8 @@ import {
     useParams
 } from 'react-router-dom'
 import App from '../App.js'
-import Home from '../home'
+import Home from '../view/home/home'
+import List from '../view/list'
 export default function Index(){
 
         return(
@@ -12,6 +13,7 @@ export default function Index(){
                 <Switch>
                 
                 <Route path="/home"  component={Home}/>
+                <Route path="/home"  component={List}/>
                 <Route path="/" component={ App }/>
                 </Switch>
 

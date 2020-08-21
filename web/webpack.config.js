@@ -42,6 +42,9 @@ module.exports = {
             '/api': {
                 target: "http://dev8.xfsbz.cn/",
                 changeOrigin: true,
+                pathRewrite: {
+                    '/api': ''
+                  }
               }
         }
     },
