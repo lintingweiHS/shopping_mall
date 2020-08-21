@@ -34,6 +34,7 @@ module.exports = {
     },
     devServer: {
         contentBase: './build',
+        historyApiFallback:true,
         port: 8088,
         inline: true,
         hot: true,

@@ -35,10 +35,7 @@ function todos(state = [], action) {
 function oData(state = {}, action) {
     // if(action.type == 'global'){
     if (action.key) {
-            return {
-                    ...state,
-                    [action.key]: action.value
-            }
+            
 
     }
     return state

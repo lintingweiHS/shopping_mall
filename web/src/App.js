@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import './App1.scss'
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,8 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className="qw">
-        <p>Hello World</p>
-        <div className="box">我是第二个div</div>
+        123123
       </div>
     );
   }
