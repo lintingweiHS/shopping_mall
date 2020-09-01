@@ -1,30 +1,17 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-// import * as serviceWorker from './serviceWorker';
-// console.log('hi')
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
 
-// // If you want your app to work offline and load faster, you can change
-// // unregister() to register() below. Note this comes with some pitfalls.
-// // Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
-
+import './index.css';
+import 'antd-mobile/dist/antd-mobile.css';
+import './assets/iconfont/iconfont.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store from './redux/redux'
-import axios from '../lib/axios'
+import store from './redux/redux';
+import axios from '../lib/axios';
+
 
 store.dispatch({
-  type:'store',
-  key:'axios',
-  value:axios
+  type: 'store',
+  key: 'axios',
+  value: axios
 })
 import Router from './router/router'
 

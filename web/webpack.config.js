@@ -34,7 +34,7 @@ module.exports = {
     },
     devServer: {
         contentBase: './build',
-        historyApiFallback:true,
+        historyApiFallback: true,
         port: 8088,
         inline: true,
         hot: true,
@@ -44,8 +44,8 @@ module.exports = {
                 changeOrigin: true,
                 pathRewrite: {
                     '/api': ''
-                  }
-              }
+                }
+            }
         }
     },
     // externals: [nodeExternals()],
@@ -55,5 +55,10 @@ module.exports = {
             template: './index.html'
         }),
         new ExtractTextPlugin("styles.css")
-    ]
+    ],
+    resolve: {
+        alias: {
+            "@": path.resolve('src'),
+        },
+    }
 }
