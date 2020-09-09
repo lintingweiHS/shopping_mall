@@ -22,9 +22,23 @@ export default class Login extends React.Component {
         })
     }
     sendSMS = () => {
-        axios.Post('api/store/verify_code?access_token=' + this.state.phone, { mobile: this.state.phone }).then(res => {
+        axios.$Post('api/store/verify_code?access_token=' + this.state.phone, { mobile: this.state.phone }).then(res => {
             console.log(res)
         })
+    }
+    login = ()=>{
+        axios.$Post(
+            "api/passport/login-by-token?access_token=" + this.state.phone,
+            {
+              username: this.state.phone,
+              token: this.state.yzm,
+              type: 'phone'
+            }
+          ).then(res => {
+            if (res.success) {
+              localStorage.setItem("Authorization", res.data.accessToken);
+            } 
+          });
     }
     setTime = () => {
         const flag = RegExp(/^1\d{10}$/).test(this.state.phone);
@@ -74,7 +88,7 @@ export default class Login extends React.Component {
                         {this.setBtn()}
                     </div>
                 </div>
-                <div className="danger">
+                <div className="danger" onClick={this.login} >
                     登录/注册
                 </div>
                 <div className="chuchu">

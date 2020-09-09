@@ -8,4 +8,4 @@ export default class oIcon extends React.Component{
             <i  className={"icon iconfont "+this.props.iconName}></i>
         )
     }
-}
+}    

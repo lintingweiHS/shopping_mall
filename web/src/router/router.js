@@ -13,10 +13,10 @@ export default function Index(){
             <Router>
                 <Switch>
                 
-                <Route path="/home"  component={Home}/>
+                {/* <Route path="/home"  component={Home}/> */}
                 <Route path="/login" component={Login} />
                 <Route path="/list"  component={List}/>
-                <Route path="/" component={ App }/>
+                <Route path="/" component={ Home }/>
                 </Switch>
 
             </Router>
