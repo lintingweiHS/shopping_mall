@@ -8,6 +8,7 @@
     }
     .products {
         padding: 5px 10px;
+        padding-bottom: 60px;
         background: #f5f5f5;
         display: flex;
         flex-wrap: wrap;
@@ -94,6 +95,13 @@
                 font-size: 18px;
                 padding: 5px 0 0 0;
             }
+        }
+        .am-list-view-scrollview {
+            width: 100%;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px
         }
     }
 }

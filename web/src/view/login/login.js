@@ -37,6 +37,7 @@ export default class Login extends React.Component {
           ).then(res => {
             if (res.success) {
               localStorage.setItem("Authorization", res.data.accessToken);
+              location.href = '/home'
             } 
           });
     }

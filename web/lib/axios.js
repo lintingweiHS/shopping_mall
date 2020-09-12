@@ -25,7 +25,7 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     if (config.method === 'post' || config.method === 'put') {
-        config.data = qs.stringify(config.data);
+      config.data = qs.stringify(config.data);
     }
     if (!config.headers.Authorization) {
       config.headers.Authorization = 'Bearer ' + (window.localStorage.getItem('Authorization') || '');
@@ -59,14 +59,19 @@ service.interceptors.response.use(
     const res = response.data
     if (res.status == 200) {
       return response.data
-    } else if (res.code == 603) {
-      // 跳转到登陆页面
+    } else if (res.status == 401) {
+      // console.log(123)
+      // location.href = '/login'
     } else {
       return Promise.reject('error')
     }
   },
   error => {
-    console.log('err' + error) // for debug
+    const err = 'err' + error
+    console.log(err.includes('401'))
+    if (err.includes('401')) {
+      location.href = '/login'
+    }
     return Promise.reject(error)
   }
 )
