@@ -9,7 +9,6 @@ class Tabbar extends Component {
             selectedTab: props.selectedTab
         }
     }
-
     render() {
 
         return (
@@ -27,38 +26,32 @@ class Tabbar extends Component {
                         selectedIcon={<div><Icon iconName="iconshouye1" /></div>}
                         // badge={1}
                         onPress={() => {
-                            location.href = '/home'
-                            this.setState({
-                                selectedTab: 'home',
-                            });
+                            location.href = '/'
+                         
                         }}
-                        selected={this.props.selectedTab == 'home'}
+                        selected={this.props.selectedTab === '/'}
                     >
                     </TabBar.Item>
                     <TabBar.Item
                         icon={<div><Icon iconName="iconfenlei4" /></div>}
                         selectedIcon={<div><Icon iconName="iconfenlei4" /></div>}
                         title="分类"
-                        key="select"
+                        key="classification"
                         onPress={() => {
-                            this.setState({
-                                selectedTab: 'select',
-                            });
+                            location.href = '/classification'
                         }}
-                        selected={this.props.selectedTab == 'select'}
+                        selected={this.props.selectedTab == '/classification'}
                     >
                     </TabBar.Item>
                     <TabBar.Item
                         icon={<div><Icon iconName="icongouwuche1" /></div>}
                         selectedIcon={<div><Icon iconName="icongouwuche1" /></div>}
                         title="购物车"
-                        key="shopping_cart"
+                        key="shoppingcart"
                         onPress={() => {
-                            this.setState({
-                                selectedTab: 'shopping_cart',
-                            });
+                            location.href = '/shoppingcart'
                         }}
-                        selected={this.props.selectedTab == 'shopping_cart'}
+                        selected={this.props.selectedTab == '/shoppingcart'}
                     >
                     </TabBar.Item>
                     <TabBar.Item
@@ -68,11 +61,8 @@ class Tabbar extends Component {
                         key="user"
                         onPress={() => {
                             location.href = '/user'
-                            this.setState({
-                                selectedTab: 'user',
-                            });
                         }}
-                        selected={this.props.selectedTab == 'user'}
+                        selected={this.props.selectedTab === '/user'}
                     >
                     </TabBar.Item>
                 </TabBar>

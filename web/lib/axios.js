@@ -44,6 +44,17 @@ service.interceptors.request.use(
     if (actId) {
       config.headers['ACT-ID'] = actId;
     }
+    if (window.__wxjs_environment === "miniprogram") {
+      config.headers['PAGE-TYPE'] = 'miniprogram';
+  } else {
+      var ua = navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == "micromessenger") {
+          config.headers['PAGE-TYPE'] = 'wx';
+      } else {
+          config.headers['PAGE-TYPE'] = 'h5';
+
+      }
+  }
     return config
   },
   error => {

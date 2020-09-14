@@ -101,7 +101,7 @@ export default class User extends Component {
                         <Icon iconName="icon202-copy" />
                     </div>
                 </div>
-                <Tabbar selectedTab="user" />
+                {/* <Tabbar selectedTab="user" /> */}
             </div>
         )
     }
