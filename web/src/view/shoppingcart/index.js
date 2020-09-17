@@ -31,7 +31,8 @@ export default class Shopping_cart extends Component {
                     <CheckboxItem onChange={() => this.onChange()}>
                       <div>123</div>
                       <div>123</div>
-                      <div>123</div> <div>123</div>
+                      <div>123</div>
+                      <div>123</div>
                     </CheckboxItem>
                   </div>
                 </div>

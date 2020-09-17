@@ -37,19 +37,19 @@ export default class User extends Component {
                     </div>
                     <div className="order-status">
                         <div className="order-status-icon">
-                            <img src={require('@/assets/images/pay_01.png')} alt="" />
+                            <img src={require('@img/pay_01.png')} alt="" />
                             <div className="type">待付款</div>
                         </div>
                         <div className="order-status-icon">
-                            <img src={require('@/assets/images/pay_02.png')} alt="" />
+                            <img src={require('@img/pay_02.png')} alt="" />
                             <div className="type">待发货</div>
                         </div>
                         <div className="order-status-icon">
-                            <img src={require('@/assets/images/pay_03.png')} alt="" />
+                            <img src={require('@img/pay_03.png')} alt="" />
                             <div className="type">待收货</div>
                         </div>
                         <div className="order-status-icon">
-                            <img src={require('@/assets/images/pay_04.png')} alt="" />
+                            <img src={require('@img/pay_04.png')} alt="" />
                             <div className="type">退款/售后</div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ export default class User extends Component {
                     <div className="item">
                         <div className="title">
                             <div className="img">
-                                <img src={require('@/assets/images/shouhuodizhi.png')} alt="" />
+                                <img src={require('@img/shouhuodizhi.png')} alt="" />
                             </div>
                             <div className="text">收货地址</div>
                         </div>
@@ -67,7 +67,7 @@ export default class User extends Component {
                     <div className="item">
                         <div className="title">
                             <div className="img">
-                                <img src={require('@/assets/images/nv-fill-order.png')} alt="" />
+                                <img src={require('@img/nv-fill-order.png')} alt="" />
                             </div>
                             <div className="text">订单管理</div>
                         </div>
@@ -76,7 +76,7 @@ export default class User extends Component {
                     <div className="item">
                         <div className="title">
                             <div className="img">
-                                <img src={require('@/assets/images/fast-booking.png')} alt="" />
+                                <img src={require('@img/fast-booking.png')} alt="" />
                             </div>
                             <div className="text">我的预定</div>
                         </div>
@@ -85,7 +85,7 @@ export default class User extends Component {
                     <div className="item">
                         <div className="title">
                             <div className="img">
-                                <img src={require('@/assets/images/shouhou-copy-copy.png')} alt="" />
+                                <img src={require('@img/shouhou-copy-copy.png')} alt="" />
                             </div>
                             <div className="text">售后记录</div>
                         </div>
@@ -94,7 +94,7 @@ export default class User extends Component {
                     <div className="item">
                         <div className="title">
                             <div className="img">
-                                <img src={require('@/assets/images/yijian.png')} alt="" />
+                                <img src={require('@img/yijian.png')} alt="" />
                             </div>
                             <div className="text">意见反馈</div>
                         </div>
