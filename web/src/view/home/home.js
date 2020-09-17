@@ -67,12 +67,12 @@ export default class Home extends React.Component {
 
     }
     render() {
-     
+
         return (
             <div className="home">
                 <div className="recommend-title">
                 </div>
-               <ProductItem dataSource={this.state.dataSource} onEndReached={this.onEndReached} />
+               <ProductItem isLoading={this.state.isLoading} dataSource={this.state.dataSource} onEndReached={this.onEndReached} />
             </div>
         )
     }

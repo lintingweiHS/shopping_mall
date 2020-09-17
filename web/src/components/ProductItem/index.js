@@ -4,9 +4,9 @@ import "./index.scss";
 export default class ProductItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      dataSource: props.dataSource,
-    };
+    // this.state = {
+    //   dataSource: props.dataSource,
+    // };
   }
   componentWillReceiveProps(props) {
     this.setState({
@@ -16,12 +16,13 @@ export default class ProductItem extends Component {
   onEndReached = () => {
     this.props.onEndReached();
   };
+  // goods_default.jpg
   render() {
     const row = (rowData, sectionID, rowID) => {
       return (
         <div className="item-cart" key={rowData.product_id}>
           <div className="item-cart-image">
-            <img src={rowData.thumbnail} alt="" />
+            <img src={rowData.thumbnail ? rowData.thumbnail : require('@img/goods_default.jpg')} alt="" />
             <span className="brand-name">{rowData.model}</span>
           </div>
           <div className="item-card-name">
@@ -38,7 +39,7 @@ export default class ProductItem extends Component {
       <div className="products-c">
         <ListView
           ref={(el) => (this.lv = el)}
-          dataSource={this.state.dataSource}
+          dataSource={this.props.dataSource}
           renderFooter={() => (
             <div
               className="footer"
@@ -48,7 +49,7 @@ export default class ProductItem extends Component {
                 fontSize: "12px",
               }}
             >
-              {this.state.isLoading ? "加载中..." : "暂无更多数据"}
+              {this.props.isLoading ? "加载中..." : "暂无更多数据"}
             </div>
           )}
           renderRow={row}
