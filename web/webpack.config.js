@@ -60,6 +60,7 @@ module.exports = {
         alias: {
             "@": path.resolve('src'),
             "_lib": path.resolve('lib'),
+            "@img":path.resolve('src/assets/images')
         },
     }
 }
