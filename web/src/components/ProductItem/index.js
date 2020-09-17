@@ -16,11 +16,13 @@ export default class ProductItem extends Component {
   onEndReached = () => {
     this.props.onEndReached();
   };
-  // goods_default.jpg
+  gotoDetail = (id) =>{
+    location.href = "/shopdetail?id=" +id
+  }
   render() {
     const row = (rowData, sectionID, rowID) => {
       return (
-        <div className="item-cart" key={rowData.product_id}>
+        <div className="item-cart" key={rowData.product_id} onClick={this.gotoDetail(rowData.product_id)}>
           <div className="item-cart-image">
             <img src={rowData.thumbnail ? rowData.thumbnail : require('@img/goods_default.jpg')} alt="" />
             <span className="brand-name">{rowData.model}</span>

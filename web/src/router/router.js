@@ -16,6 +16,7 @@ import User from "@/view/user/index";
 import Tabbar from "@/components/Tabbar/";
 import Classification from "@/view/classification/index";
 import Shoppingcart from "@/view/shoppingcart/index";
+import Shopdetail from "@/view/shopdetail/index";
 export default function Index() {
   const selectedTab = location.pathname;
 
@@ -41,6 +42,7 @@ export default function Index() {
           <Route path="/list" component={List} />
           <Route path="/classification" component={Classification} />
           <Route path="/shoppingcart" component={Shoppingcart} />
+          <Route path="/shopdetail" component={Shopdetail} />
           <Route path="/" component={Home} />
         </Switch>
       </Router>
