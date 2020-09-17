@@ -59,6 +59,7 @@ module.exports = {
     resolve: {
         alias: {
             "@": path.resolve('src'),
+            "_lib": path.resolve('lib'),
         },
     }
 }

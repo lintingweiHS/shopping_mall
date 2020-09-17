@@ -1,0 +1,98 @@
+.products-c {
+    padding: 5px 10px;
+    padding-bottom: 60px;
+    background: #f5f5f5;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    .item-cart {
+        display: inline-block;
+        width: 49%;
+        padding: 5px;
+        background-color: #fff;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+        .item-cart-image {
+            position: relative;
+            width: 100%;
+            margin-bottom: 5px;
+            >img {
+                display: inline-block;
+                max-height: 100%;
+                max-width: 100%;
+            }
+            .brand-name {
+                position: absolute;
+                left: 0;
+                bottom: -5px;
+                max-width: 70%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                text-align: left;
+                background: #e09d89;
+                border-radius: 2px;
+                color: white;
+                font-size: 10px;
+                padding: 1px 10px;
+            }
+        }
+        .item-card-name {
+            margin-top: 15px;
+            line-height: 16px;
+            font-size: 12px;
+            height: 17px;
+            color: #000;
+            font-weight: bold;
+            display: flex;
+            .identify {
+                color: #fff;
+                height: 15px;
+                line-height: 15px;
+                width: 42px;
+                white-space: nowrap;
+                text-align: center;
+                background: #ef000e;
+                >span {
+                    width: 100%;
+                    text-align: center;
+                    margin-left: -4px;
+                    display: inline-block;
+                    font-size: 12px;
+                    -webkit-transform: scale(0.65);
+                    transform: scale(0.65);
+                    font-weight: 300;
+                }
+            }
+            .name {
+                -webkit-box-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;
+                margin-top: -4px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                margin-top: 1px;
+                margin-left: 2px;
+            }
+        }
+        .item-cart-price {
+            display: inline-block;
+            color: #ff0202;
+            font-size: 18px;
+            padding: 5px 0 0 0;
+        }
+    }
+    .am-list-view-scrollview {
+        width: 100%;
+    }
+    .footer {
+        text-align: center;
+        font-size: 12px
+    }
+}

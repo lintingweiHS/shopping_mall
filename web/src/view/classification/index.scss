@@ -1,0 +1,100 @@
+.classification {
+    .tabs {
+        .am-tabs-default-bar-tab {
+            cursor: pointer;
+            font-size: 14px;
+            position: relative;
+            color: #7d7e80;
+            line-height: 44px;
+            text-align: center;
+            box-sizing: border-box;
+            >span {
+                display: inline-block;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+        .am-tabs-default-bar-tab-active {
+            font-weight: bold;
+            color: #333;
+        }
+    }
+    .classmain {
+        margin-top: 10px;
+        height: calc(100vh - 155px);
+        display: flex;
+        .am-tabs {
+            width: 100px !important;
+            overflow: hidden;
+            display: inline-block;
+            position: relative;
+            flex: none;
+            .am-tabs-default-bar-content {
+                transform: none !important;
+                height: calc(100vh - 155px);
+                overflow-y: scroll;
+                touch-action: auto !important;
+                width: 150px;
+            }
+            .am-tabs-default-bar-left .am-tabs-default-bar-tab {
+                padding: 0;
+            }
+            .am-tabs-default-bar-tab {
+                width: 100px;
+                height: 40px !important;
+                border-bottom: 1px solid #e5e5e5;
+                border-left: 2px solid #fff;
+                >span {
+                    display: inline-block;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    padding: 0 5px;
+                    color: #333;
+                }
+            }
+            .am-tabs-default-bar-tab-active {
+                border-left: 2px solid #f44;
+                span {
+                    color: #f44;
+                }
+            }
+            .am-tabs-content-wrap-animated {
+                display: none;
+            }
+        }
+        .goods {
+            flex: 1;
+            background-color: #fff;
+            margin-left: 10px;
+            background: #FFFFFF;
+            padding: 10px 20px;
+            margin-right: -3%;
+            text-align: center;
+            overflow-y: scroll;
+            .class-tree {
+                float: left;
+                padding-right: 3%;
+                box-sizing: border-box;
+                width: 33.333%;
+                margin-bottom: 20px;
+                text-align: center;
+                >.tree-img {
+                    display: inline-block;
+                    max-width: 100%;
+                    width: 70px;
+                    height: 70px;
+                    img {
+                        max-width: 100%;
+                    }
+                }
+                >.tree-name {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import qs from 'qs';
 // 环境变量
 let env = process.env.NODE_ENV;
 
@@ -16,16 +17,44 @@ let env = process.env.NODE_ENV;
 
 // 创建axios实例
 const service = axios.create({
-    timeout: 30000,
-    baseURL: process.env.NODE_ENV === "development" ? '/api' : ""
+  timeout: 30000,
+  baseURL: process.env.NODE_ENV === "development" ? '/api' : ""
 });
 
 // request拦截器(请求前的处理)
 service.interceptors.request.use(
   config => {
-    // if (store.getters.token) {
-    //   config.headers['X-Token'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
-    // }
+    if (config.method === 'post' || config.method === 'put') {
+      config.data = qs.stringify(config.data);
+    }
+    if (!config.headers.Authorization) {
+      config.headers.Authorization = 'Bearer ' + (window.localStorage.getItem('Authorization') || '');
+    }
+    var sbzRegion = localStorage.getItem('sbzRegion');
+    if (sbzRegion) {
+      sbzRegion = JSON.parse(sbzRegion);
+      config.headers['SBZ-REGION'] = sbzRegion.value;
+    }
+    var company = localStorage.getItem('company');
+    if (company) {
+      config.headers['Company'] = company;
+    }
+
+    var actId = localStorage.getItem('activityId');
+    if (actId) {
+      config.headers['ACT-ID'] = actId;
+    }
+    if (window.__wxjs_environment === "miniprogram") {
+      config.headers['PAGE-TYPE'] = 'miniprogram';
+  } else {
+      var ua = navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == "micromessenger") {
+          config.headers['PAGE-TYPE'] = 'wx';
+      } else {
+          config.headers['PAGE-TYPE'] = 'h5';
+
+      }
+  }
     return config
   },
   error => {
@@ -39,42 +68,47 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     const res = response.data
-    if (res.code == 666) {
+    if (res.status == 200) {
       return response.data
-    } else if (res.code == 603) {
-      // 跳转到登陆页面
+    } else if (res.status == 401) {
+      // console.log(123)
+      // location.href = '/login'
     } else {
       return Promise.reject('error')
     }
   },
   error => {
-    console.log('err' + error) // for debug
+    const err = 'err' + error
+    console.log(err.includes('401'))
+    if (err.includes('401')) {
+      location.href = '/login'
+    }
     return Promise.reject(error)
   }
 )
 
 
-const Get = (url, params, config = {}) => {
-    return service.get(url, {
-        params: params,
-        ...config
-    })
+const $Get = (url, params, config = {}) => {
+  return service.get(url, {
+    params: params,
+    ...config
+  })
 }
 
-const Post = (url, data, config = {}) => {
-    return service.post(url, data, config)
+const $Post = (url, data, config = {}) => {
+  return service.post(url, data, config)
 }
 
-const Delete = (url, config = {}) => {
-    return instance({
-        url: url,
-        method: 'delete',
-        ...config
-    })
+const $Delete = (url, config = {}) => {
+  return instance({
+    url: url,
+    method: 'delete',
+    ...config
+  })
 }
 
-const Put = (url, data, config = {}) => {
-    return instance.put(url, data, config)
+const $Put = (url, data, config = {}) => {
+  return instance.put(url, data, config)
 }
 // let $request = {
 //     Get:Get,
@@ -83,8 +117,8 @@ const Put = (url, data, config = {}) => {
 //     Put:Put
 // };
 export default {
-  Get,
-  Post,
-  Delete,
-  Put
+  $Get,
+  $Post,
+  $Delete,
+  $Put
 }
