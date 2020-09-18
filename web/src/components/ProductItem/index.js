@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { ListView, Toast } from "antd-mobile";
+import { withRouter } from 'react-router-dom'
 import "./index.scss";
-export default class ProductItem extends Component {
+ class ProductItem extends Component {
   constructor(props) {
     super(props);
     // this.state = {
@@ -17,12 +18,12 @@ export default class ProductItem extends Component {
     this.props.onEndReached();
   };
   gotoDetail = (id) =>{
-    location.href = "/shopdetail?id=" +id
+    this.props.history.push("/shopdetail?id=" +id)
   }
   render() {
     const row = (rowData, sectionID, rowID) => {
       return (
-        <div className="item-cart" key={rowData.product_id} onClick={this.gotoDetail(rowData.product_id)}>
+        <div className="item-cart" key={rowData.product_id} onClick={()=>{this.gotoDetail(rowData.product_id)}}>
           <div className="item-cart-image">
             <img src={rowData.thumbnail ? rowData.thumbnail : require('@img/goods_default.jpg')} alt="" />
             <span className="brand-name">{rowData.model}</span>
@@ -64,3 +65,5 @@ export default class ProductItem extends Component {
     );
   }
 }
+
+export default withRouter(ProductItem)

@@ -21,6 +21,8 @@
         }
     }
     .classmain {
+        width: 100%;
+        overflow: hidden;
         margin-top: 10px;
         height: calc(100vh - 155px);
         display: flex;
@@ -68,7 +70,7 @@
             flex: 1;
             background-color: #fff;
             margin-left: 10px;
-            background: #FFFFFF;
+            background: #ffffff;
             padding: 10px 20px;
             margin-right: -3%;
             text-align: center;

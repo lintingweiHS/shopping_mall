@@ -17,21 +17,9 @@ import Tabbar from "@/components/Tabbar/";
 import Classification from "@/view/classification/index";
 import Shoppingcart from "@/view/shoppingcart/index";
 import Shopdetail from "@/view/shopdetail/index";
+
+
 export default function Index() {
-  const selectedTab = location.pathname;
-
-  function setTabbar() {
-    if (
-      selectedTab === "/" ||
-      selectedTab === "/classification" ||
-      selectedTab === "/shoppingcart" ||
-      selectedTab === "/user"
-    ) {
-      return <Tabbar selectedTab={selectedTab} />;
-    }
-    return;
-  }
-
   return (
     <div>
       <Router>
@@ -45,8 +33,8 @@ export default function Index() {
           <Route path="/shopdetail" component={Shopdetail} />
           <Route path="/" component={Home} />
         </Switch>
+        <Tabbar />
       </Router>
-      {setTabbar()}
     </div>
   );
 }

@@ -3,42 +3,60 @@ import Icon from "@/components/Icon";
 import axios from "_lib/axios.js";
 import qs from "query-string";
 import { Carousel } from "antd-mobile";
+import './index.scss'
 export default class shopDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      product_id: null,
-      data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+      id: 0,
+      data: ["AiyWuByWklrrUDlFignR", "TekJlZRVCjLFexlOCuWn", "IJOtIlfsYdTyaDTRVrLI"],
+      goods:{
+        images:[]
+      }
     };
   }
   componentDidMount() {
-    const query = qs.parseUrl(location.search).query;
-    console.log(query);
-    this.setState({
-      product_id: query.id,
-    });
+    const id = qs.parseUrl(location.search).query.id;
+    this.setState(
+      {
+        id: id,
+      },
+      () => {
+        this.getData();
+      }
+    );
   }
+  getData = () => {
+    axios.$Get("api/store/product/rt_meta/" + this.state.id).then((res) => {
+      if(res.success){
+        this.setState({
+          goods:res.data
+        })
+
+      }
+    });
+  };
   render() {
     return (
       <div className="shop-detail">
         <Carousel
-          autoplay={false}
+          autoplay
           infinite
-          beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-          afterChange={(index) => console.log("slide to", index)}
+          // beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+          // afterChange={(index) => console.log("slide to", index)}
         >
-          {this.state.data.map((val) => (
-              <img
-               key={val}
-                src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
-                alt=""
-                style={{ width: "100%", verticalAlign: "top" }}
-                onLoad={() => {
-                  // fire window resize event to change height
-                  window.dispatchEvent(new Event("resize"));
-                  this.setState({ imgHeight: "auto" });
-                }}
-              />
+          {this.state.goods.images.map((val) => (
+            <img
+              key={val}
+              src={val.image}
+              alt=""
+              style={{ width: "100%", verticalAlign: "top" }}
+              onLoad={() => {
+                // fire window resize event to change height
+                window.dispatchEvent(new Event("resize"));
+                this.setState({ imgHeight: "auto" });
+              }}
+            />
           ))}
         </Carousel>
       </div>

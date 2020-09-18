@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "_lib/axios.js";
 import { SearchBar, Tabs } from "antd-mobile";
 import "./index.scss";
+import redux from "@/redux/redux";
 export default class Classification extends Component {
   constructor(props) {
     super(props);
@@ -14,11 +15,26 @@ export default class Classification extends Component {
     };
   }
   componentDidMount() {
-    this.getData();
+    const state = redux.getState();
+    if (state.todos.categoryList) {
+      const categoryList = state.todos.categoryList;
+      this.setState({
+        categorys: categoryList,
+        category: categoryList[0],
+        goods: categoryList[0].categories[0],
+      });
+    } else {
+      this.getData();
+    }
   }
   getData = () => {
     axios.$Get("api/store/category").then((res) => {
       if (res.success && res.data[0]) {
+        redux.dispatch({
+          type: "store",
+          key: "categoryList",
+          value: res.data,
+        });
         this.setState({
           categorys: res.data,
           category: res.data[0],
