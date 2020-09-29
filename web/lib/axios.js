@@ -2,19 +2,6 @@ import axios from 'axios';
 import qs from 'qs';
 // 环境变量
 let env = process.env.NODE_ENV;
-
-// development开发 test测试  production生产
-// let baseUrl = '';
-// if (env === 'development') {
-//   baseUrl = 'http://dev8.xfsbz.cn/';
-// } else if (env === 'test') {
-//   baseUrl = '待配置';
-// } else if (env === 'production') {
-//   baseUrl = 'http://huruqing.cn:3002';
-// }
-
-
-
 // 创建axios实例
 const service = axios.create({
   timeout: 30000,
@@ -100,7 +87,7 @@ const $Post = (url, data, config = {}) => {
 }
 
 const $Delete = (url, config = {}) => {
-  return instance({
+  return service({
     url: url,
     method: 'delete',
     ...config
@@ -108,7 +95,7 @@ const $Delete = (url, config = {}) => {
 }
 
 const $Put = (url, data, config = {}) => {
-  return instance.put(url, data, config)
+  return service.put(url, data, config)
 }
 // let $request = {
 //     Get:Get,
