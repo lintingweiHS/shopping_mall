@@ -20,6 +20,7 @@ class Tabbar extends Component {
     const path = location.pathname;
     if (
       path === "/" ||
+      path === "/home"||
       path === "/classification" ||
       path === "/shoppingcart" ||
       path === "/user"

@@ -4,6 +4,7 @@ import axios from "_lib/axios.js";
 import qs from "query-string";
 import { Carousel, Tabs } from "antd-mobile";
 import "./index.scss";
+import Goodbuy from './goodBuy'
 export default class shopDetail extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +24,9 @@ export default class shopDetail extends Component {
         { title: "商品评价", key: "t3" },
       ],
       tab: "t1",
+      showMoreOption: true,
+      resStr: null,
+      sbzRegion: { label: "上海 静安区 城区", value: "2_2817_51973" },
     };
   }
   componentDidMount() {
@@ -83,56 +87,65 @@ export default class shopDetail extends Component {
       });
     }
   };
-  descs = () => {
-    return (
-      <div className="descs">
-        {this.state.goods.extra && this.state.goods.extra.is_self_text && (
-          <span className="desc">
-            <Icon iconName="iconjinakangbaoicons17" />
-            {this.state.goods.extra.is_self_text}
-          </span>
-        )}
-        {this.state.goods.extra && this.state.goods.extra.factory_ship_text && (
-          <span className="desc">
-            <Icon iconName="iconjinakangbaoicons17" />
-            {this.state.goods.extra.factory_ship_text}
-          </span>
-        )}
-        {this.state.goods.extra && this.state.goods.extra.afterservice_text && (
-          <span className="desc">
-            <Icon iconName="iconjinakangbaoicons17" />
-            {this.state.goods.extra.afterservice_text}
-          </span>
-        )}
-        {this.state.goods.extra && this.state.goods.extra.return_goods_text && (
-          <span className="desc">
-            <Icon iconName="iconjinakangbaoicons17" />
-            {this.state.goods.extra.return_goods_text}
-          </span>
-        )}
-        {this.state.goods.extra && this.state.goods.extra.thwa_text && (
-          <span className="desc block">
-            <Icon iconName="iconjinakangbaoicons17" />
-            {this.state.goods.thwa_text}
-          </span>
-        )}
-      </div>
-    );
-  };
   tabsChange = (e) => {
-    console.log(e);
     this.setState({
       tab: e.key,
     });
   };
+  optionName() {
+    let productOption;
+    if (
+      !this.state.goods.variant_option ||
+      (this.state.goods.variant_option &&
+        this.state.goods.variant_option.length == 0) ||
+      !this.state.goods.sku_map
+    ) {
+      this.showMoreOption = false;
+      return false;
+    }
+    for (const key in this.state.goods.sku_map) {
+      if (this.state.goods.sku_map.hasOwnProperty(key)) {
+        const element = this.state.goods.sku_map[key];
+        if (element === this.state.goods.product_id) {
+          productOption = key;
+        }
+      }
+    }
+    if (!productOption) {
+      this.showMoreOption = false;
+      return;
+    }
+    var option_array = productOption
+      .split(";")
+      .filter((str) => str != "")
+      .map((str) => str.split(":"));
+    var resStr = "";
+
+    option_array.forEach((element) => {
+      var optionValues = this._getOptionById(element[0]);
+      optionValues["option_value"].forEach((optionValue) => {
+        if (optionValue.option_value_id == element[1]) {
+          resStr += optionValue.name;
+        }
+      });
+      resStr += " ";
+    });
+    resStr = resStr.trim();
+    return (resStr + ", " + this.state.num + "件")
+  }
+  _getOptionById(id) {
+    var option;
+    this.state.goods.variant_option.forEach((element) => {
+      option = element;
+    });
+    return option;
+  }
   render() {
     return (
       <div className="shop-detail">
         <Carousel
           autoplay
           infinite
-          // beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-          // afterChange={(index) => console.log("slide to", index)}
         >
           {this.state.goods.images.map((val) => (
             <img
@@ -158,17 +171,48 @@ export default class shopDetail extends Component {
         <div className="item-group">
           <div className="group">
             <div className="title">编号</div>
-            <div className="value">{this.state.goods.sku}</div>
+            <div className="value">{this.state.goods.extra && this.state.goods.extra.sku}</div>
           </div>
-          <div className="group">
+          {this.state.showMoreOption && <div className="group">
             <div className="title">选择规格</div>
-            <div className="value">qqqq</div>
-          </div>
+            <div className="value">{this.optionName()}</div>
+          </div>}
           <div className="group">
             <div className="title">配送至</div>
-            <div className="value">asdasda</div>
+            <div className="value">{this.state.sbzRegion.label}</div>
           </div>
-          {this.descs()}
+          <div className="descs">
+            {this.state.goods.extra && this.state.goods.extra.is_self_text && (
+              <span className="desc">
+                <Icon iconName="iconjinakangbaoicons17" />
+                {this.state.goods.extra.is_self_text}
+              </span>
+            )}
+            {this.state.goods.extra && this.state.goods.extra.factory_ship_text && (
+              <span className="desc">
+                <Icon iconName="iconjinakangbaoicons17" />
+                {this.state.goods.extra.factory_ship_text}
+              </span>
+            )}
+            {this.state.goods.extra && this.state.goods.extra.afterservice_text && (
+              <span className="desc">
+                <Icon iconName="iconjinakangbaoicons17" />
+                {this.state.goods.extra.afterservice_text}
+              </span>
+            )}
+            {this.state.goods.extra && this.state.goods.extra.return_goods_text && (
+              <span className="desc">
+                <Icon iconName="iconjinakangbaoicons17" />
+                {this.state.goods.extra.return_goods_text}
+              </span>
+            )}
+            {this.state.goods.extra && this.state.goods.extra.thwa_text && (
+              <span className="desc block">
+                <Icon iconName="iconjinakangbaoicons17" />
+                {this.state.goods.thwa_text}
+              </span>
+            )}
+          </div>
         </div>
 
         <Tabs
@@ -209,6 +253,7 @@ export default class shopDetail extends Component {
             </div>
           )}
         </div>
+        <Goodbuy />
       </div>
     );
   }
